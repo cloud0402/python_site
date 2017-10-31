@@ -1,3 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response
+from .models import BlogPost
 
-# Create your views here.
+archive = lambda req: render_to_response('archive.html', {'posts': BlogPost.objects.all()[:5]})
